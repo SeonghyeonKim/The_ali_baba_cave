@@ -21,11 +21,11 @@ void printTitle(void) {
 // parameter : None
 // return : None
 void printMenu(void) {
-	cout << "\n============MENU============\n";
-	cout << "1. Print State\n";
-	cout << "2. Set State\n";
-	cout << "3. Test\n";
-	cout << "4. Quit\n";
+    cout << "\n============MENU============\n";
+    cout << "1. Print State\n";
+    cout << "2. Set State\n";
+    cout << "3. Test\n";
+    cout << "4. Quit\n";
 }
 
 // print current state
@@ -33,10 +33,10 @@ void printMenu(void) {
 // return : None
 // print possesion of key and the number of test case
 void printState(void) {
-	if(have_key) cout << "\nYou have a key\n";
-	else cout << "\nYou don’t have a key\n";
+    if(have_key) cout << "\nYou have a key\n";
+    else cout << "\nYou don’t have a key\n";
 
-	cout << "The number of testcase : " << the_number_of_case << "\n";
+    cout << "The number of testcase : " << the_number_of_case << "\n";
 }
 
 // Setting State
@@ -48,8 +48,10 @@ void setState(void) {
     while(1) {
         cout << "\nInput key state.\n";
         cout << "1. have  2. don’t have\n >>> ";
+        
         int num;
         cin >> num;
+
         if(num==1) {
             have_key=1;
             cout << "\nNow, you have a key\n";
@@ -59,7 +61,7 @@ void setState(void) {
             have_key=0;
             cout << "\nNow, you don’t have a key\n";
             break;
-		}
+        }
         else cout << "\nWrong State!\n";
     } 
 
@@ -85,14 +87,14 @@ void setState(void) {
 // test the zero-knowledge proof
 void test(void) {
     int complete_count=0;
- 
-	// random
-	random_device rd; 
-	mt19937_64 mt(rd());
-	uniform_int_distribution<int> range(0, 1);
 
-	for(int i=1; i<=the_number_of_case; i++) {
-		int check = range(mt);
+    // random
+    random_device rd; 
+    mt19937_64 mt(rd());
+    uniform_int_distribution<int> range(0, 1);
+
+    for(int i=1; i<=the_number_of_case; i++) {
+        int check = range(mt);
         int choice = range(mt);
 
         char V, P;
@@ -119,26 +121,26 @@ void test(void) {
 // parameter : None
 // return : input number
 int input(void) {
-	cout << "\nSelect the number : ";
-	int num;
-	cin >> num;
-	return num;
+    cout << "\nSelect the number : ";
+    int num;
+    cin >> num;
+    return num;
 }
 
 int main(void) {
-	cin.tie(NULL);
-	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    ios_base::sync_with_stdio(false);
 
-	printTitle();
+    printTitle();
 
-	while(1) {
-		printMenu();
-		int selection = input();
-			
-		switch (selection) {
-			case 1:
-				printState();
-				break;
+    while(1) {
+        printMenu();
+        int selection = input();
+            
+        switch (selection) {
+            case 1:
+                printState();
+                break;
             case 2:
                 setState();
                 break;
@@ -149,8 +151,8 @@ int main(void) {
                 exit(0);
             default:
                 cout << "\nWrong selection!\n";
-		}
-	}
+        }
+    }
 	
 	return 0;
 }

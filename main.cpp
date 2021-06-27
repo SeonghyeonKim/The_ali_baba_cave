@@ -128,9 +128,6 @@ int input(void) {
 }
 
 int main(void) {
-    cin.tie(NULL);
-    ios_base::sync_with_stdio(false);
-
     printTitle();
 
     while(1) {
